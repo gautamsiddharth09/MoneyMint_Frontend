@@ -1,0 +1,959 @@
+
+
+:root {
+  --dashboard-bg: #f6f8fc;
+  --dashboard-card: #ffffff;
+
+  --dashboard-text: #172033;
+  --dashboard-heading: #111827;
+  --dashboard-muted: #667085;
+  --dashboard-light: #98a2b3;
+
+  --dashboard-border: #e7eaf0;
+
+  --dashboard-primary: #4f46e5;
+  --dashboard-primary-light: #eef2ff;
+
+  --dashboard-purple: #7c3aed;
+  --dashboard-teal: #0f9f8f;
+
+  --dashboard-green: #059669;
+  --dashboard-green-light: #ecfdf3;
+
+  --dashboard-red: #dc2626;
+  --dashboard-red-light: #fef2f2;
+
+  --dashboard-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.055);
+}
+
+
+/* =========================================================
+   Welcome Banner
+========================================================= */
+
+.welcome-banner {
+  position: relative;
+
+  min-height: 190px;
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 24px;
+  padding: 30px 34px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 22px;
+
+    background: linear-gradient(
+    110deg,
+    #302b83 0%,
+    #302b83 55%,
+    #111827 100%
+  );
+
+  box-shadow:
+    0 12px 35px rgba(79, 70, 229, 0.055);
+}
+
+
+/* =========================================================
+   Welcome Content
+========================================================= */
+
+.welcome-banner > div {
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-banner .auth-brand {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 14px;
+
+  padding: 7px 11px;
+
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.62);
+
+  color: var(--dashboard-primary);
+
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.05);
+}
+
+.welcome-banner .auth-brand::before {
+  width: 7px;
+  height: 7px;
+
+  margin-right: 7px;
+
+  background: var(--dashboard-primary);
+
+  box-shadow:
+    0 0 0 3px rgba(79, 70, 229, 0.10),
+    0 0 10px rgba(79, 70, 229, 0.22);
+}
+
+.welcome-banner h2 {
+  margin: 0;
+
+ color: #f8f9fa;
+
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+}
+
+.welcome-banner p {
+  max-width: 650px;
+
+  margin: 9px 0 0;
+color: #f8f9fa;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   Summary Cards
+========================================================= */
+
+.summary-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--dashboard-border);
+  border-radius: 18px;
+
+  background: var(--dashboard-card);
+
+  box-shadow: var(--dashboard-shadow);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px rgba(15, 23, 42, 0.08);
+
+  border-color: #dfe3eb;
+}
+
+.summary-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  right: -25px;
+  bottom: -35px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.045);
+}
+
+.summary-card p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 12px;
+
+  color: var(--dashboard-muted);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.summary-card h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: var(--dashboard-heading);
+
+  font-size: 25px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+
+  overflow-wrap: anywhere;
+}
+
+.summary-card small {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  margin-top: 9px;
+
+  color: var(--dashboard-light);
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   Summary Card - Income
+========================================================= */
+
+.summary-card--income {
+  border-top: 3px solid #10b981;
+}
+
+.summary-card--income::after {
+  background: rgba(16, 185, 129, 0.07);
+}
+
+.summary-card--income h3 {
+  color: #047857;
+}
+
+
+/* =========================================================
+   Summary Card - Expense
+========================================================= */
+
+.summary-card--expense {
+  border-top: 3px solid #f97316;
+}
+
+.summary-card--expense::after {
+  background: rgba(249, 115, 22, 0.07);
+}
+
+.summary-card--expense h3 {
+  color: #c2410c;
+}
+
+
+/* =========================================================
+   Summary Card - Positive
+========================================================= */
+
+.summary-card--positive {
+  border-top: 3px solid #6366f1;
+}
+
+.summary-card--positive::after {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.summary-card--positive h3 {
+  color: var(--dashboard-primary);
+}
+
+
+/* =========================================================
+   Summary Card - Negative
+========================================================= */
+
+.summary-card--negative {
+  border-top: 3px solid #ef4444;
+}
+
+.summary-card--negative::after {
+  background: rgba(239, 68, 68, 0.07);
+}
+
+.summary-card--negative h3 {
+  color: var(--dashboard-red);
+}
+
+
+/* =========================================================
+   Main Dashboard Grid
+========================================================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Dashboard Card
+========================================================= */
+
+.dashboard-card {
+  min-width: 0;
+
+  padding: 22px;
+
+  border: 1px solid var(--dashboard-border);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow: var(--dashboard-shadow);
+}
+
+.dashboard-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 30px;
+
+  margin-bottom: 20px;
+}
+
+.dashboard-card__header h2 {
+  margin: 0;
+
+  color: var(--dashboard-heading);
+
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 750;
+
+  letter-spacing: -0.2px;
+}
+
+
+/* =========================================================
+   Empty State
+========================================================= */
+
+.dashboard-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 110px;
+
+  margin: 0;
+  padding: 20px;
+
+  border: 1px dashed #d9dee8;
+  border-radius: 12px;
+
+  background: #fafbfc;
+
+  color: var(--dashboard-muted);
+
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* =========================================================
+   Breakdown List
+========================================================= */
+
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.breakdown-list li {
+  min-width: 0;
+}
+
+.breakdown-list__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 8px;
+}
+
+.breakdown-list__meta span {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.breakdown-list__meta strong {
+  flex-shrink: 0;
+
+  color: #172033;
+
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.breakdown-list__bar {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: #eef0f5;
+}
+
+.breakdown-list__bar span {
+  display: block;
+
+  height: 100%;
+
+  min-width: 4px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6366f1,
+      #8b5cf6
+    );
+
+  box-shadow:
+    0 0 10px rgba(99, 102, 241, 0.15);
+
+  transition: width 0.4s ease;
+}
+
+.breakdown-list li > small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #98a2b3;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   Budget List
+========================================================= */
+
+.budget-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.budget-list li {
+  min-width: 0;
+}
+
+.budget-list__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 8px;
+}
+
+.budget-list__meta span {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.budget-list__meta strong {
+  flex-shrink: 0;
+
+  color: #172033;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.budget-list__bar {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: #eef0f5;
+}
+
+.budget-list__bar span {
+  display: block;
+
+  height: 100%;
+
+  min-width: 4px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #14b8a6,
+      #0d9488
+    );
+
+  transition:
+    width 0.4s ease,
+    background 0.2s ease;
+}
+
+.budget-list__bar span.over-budget {
+  background:
+    linear-gradient(
+      90deg,
+      #f97316,
+      #ef4444
+    );
+
+  box-shadow:
+    0 0 10px rgba(239, 68, 68, 0.15);
+}
+
+.budget-list li > small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #98a2b3;
+
+  font-size: 15px;
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   Recent Transactions
+========================================================= */
+
+
+.dashboard-grid > .dashboard-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.transaction-list li {
+  min-height: 43px;
+  padding: 8px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.transaction-list li:last-child {
+  border-bottom: none;
+}
+
+.transaction-list li > div:first-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.transaction-list li strong {
+  color: #344054;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-list li small {
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.transaction-list__amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.transaction-list__amount span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.transaction-list__amount span.income {
+  color: #08b77a;
+}
+
+.transaction-list__amount span.expense {
+  color: #ef476f;
+}
+
+
+/* =========================================================
+   Month Selector
+========================================================= */
+
+.month-selector {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 4px;
+
+  border: 1px solid #e2e6ed;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.month-selector button {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #667085;
+
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.month-selector button:hover {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.month-selector span {
+  min-width: 112px;
+
+  padding: 0 8px;
+
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   Loading State
+========================================================= */
+
+.dashboard-state {
+  min-height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  border: 1px solid var(--dashboard-border);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: var(--dashboard-muted);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow: var(--dashboard-shadow);
+}
+
+
+/* =========================================================
+   Error Alert
+========================================================= */
+
+.auth-alert--error {
+  margin-bottom: 20px;
+
+  border: 1px solid #fecaca;
+  border-radius: 13px;
+
+  background: #fff7f7;
+  color: #b42318;
+
+  box-shadow: 0 5px 18px rgba(220, 38, 38, 0.05);
+}
+
+
+/* =========================================================
+   Large Tablet
+========================================================= */
+
+@media (max-width: 1100px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .welcome-banner {
+    min-height: 175px;
+    padding: 28px;
+  }
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 800px) {
+  .summary-grid {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .welcome-banner {
+    min-height: auto;
+
+    margin-bottom: 18px;
+    padding: 25px 22px;
+
+    border-radius: 18px;
+  }
+
+  .welcome-banner h2 {
+    font-size: 24px;
+  }
+
+  .welcome-banner p {
+    font-size: 13px;
+  }
+
+  .summary-card {
+    padding: 19px;
+
+    border-radius: 16px;
+  }
+
+  .summary-card h3 {
+    font-size: 22px;
+  }
+
+  .dashboard-card {
+    padding: 19px;
+
+    border-radius: 16px;
+  }
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner {
+    padding: 22px 19px;
+  }
+
+  .welcome-banner h2 {
+    font-size: 22px;
+  }
+
+  .welcome-banner p {
+    max-width: 100%;
+  }
+
+  .summary-card {
+    min-height: 130px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .summary-card p {
+    margin-bottom: 9px;
+  }
+
+  .summary-card h3 {
+    font-size: 24px;
+  }
+
+  .dashboard-card {
+    padding: 17px;
+  }
+
+  .dashboard-card__header {
+    margin-bottom: 17px;
+  }
+
+  .dashboard-card__header h2 {
+    font-size: 15px;
+  }
+
+  .transaction-list li {
+    gap: 12px;
+  }
+
+  .transaction-list strong {
+    max-width: 180px;
+  }
+
+  .transaction-list__amount span {
+    font-size: 12px;
+  }
+
+  .month-selector {
+    padding: 3px;
+  }
+
+  .month-selector span {
+    min-width: 95px;
+    font-size: 12px;
+  }
+
+  .month-selector button {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* =========================================================
+   Very Small Mobile
+========================================================= */
+
+@media (max-width: 380px) {
+  .welcome-banner h2 {
+    font-size: 20px;
+  }
+
+  .summary-card h3 {
+    font-size: 22px;
+  }
+
+  .dashboard-card {
+    padding: 15px;
+  }
+
+  .breakdown-list__meta,
+  .budget-list__meta {
+    gap: 8px;
+  }
+
+  .breakdown-list__meta span,
+  .budget-list__meta span {
+    font-size: 12px;
+  }
+
+  .breakdown-list__meta strong,
+  .budget-list__meta strong {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .summary-card,
+  .breakdown-list__bar span,
+  .budget-list__bar span,
+  .month-selector button {
+    transition: none;
+  }
+
+  .summary-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,866 @@
+/* =========================================================
+   Loan Disbursement Page
+   Professional FinTech UI
+========================================================= */
+
+.loan-flow {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* =========================================================
+   Approved Loan Banner
+========================================================= */
+
+.loan-offer-banner {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 20px 22px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(16, 185, 129, 0.09),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #f0fdf4,
+      #ffffff
+    );
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.035),
+    0 1px 3px rgba(15, 23, 42, 0.025);
+}
+
+.loan-offer-banner::after {
+  content: "";
+
+  position: absolute;
+  width: 150px;
+  height: 150px;
+
+  right: -70px;
+  bottom: -95px;
+
+  border-radius: 50%;
+
+  background: rgba(16, 185, 129, 0.06);
+
+  pointer-events: none;
+}
+
+.loan-offer-banner__icon {
+  position: relative;
+  z-index: 1;
+
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #10b981;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 14px rgba(16, 185, 129, 0.2);
+}
+
+.loan-offer-banner h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: #166534;
+
+  font-size: 16px;
+  font-weight: 750;
+
+  letter-spacing: -0.01em;
+}
+
+.loan-offer-banner p {
+  position: relative;
+  z-index: 1;
+
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.loan-offer-banner strong {
+  color: #15803d;
+  font-weight: 750;
+}
+
+/* =========================================================
+   Main Grid
+========================================================= */
+
+.loan-disburse-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(320px, 0.75fr);
+
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+/* =========================================================
+   Slider Card
+========================================================= */
+
+.loan-sliders-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 28px;
+
+  border: 1px solid #e7eaf0;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.025),
+    0 1px 3px rgba(15, 23, 42, 0.025);
+}
+
+.loan-sliders-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #6366f1,
+    #14b8a6
+  );
+}
+
+.loan-sliders-card h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 20px;
+  font-weight: 750;
+
+  letter-spacing: -0.02em;
+}
+
+.loan-sliders-card__sub {
+  margin: 6px 0 0;
+
+  color: #667085;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.loan-sliders-card .auth-alert {
+  margin-top: 20px;
+}
+
+/* =========================================================
+   Slider Groups
+========================================================= */
+
+.loan-slider-group {
+  padding: 22px 0;
+
+  border-bottom: 1px solid #eef0f4;
+}
+
+.loan-slider-group:first-of-type {
+  margin-top: 8px;
+}
+
+.loan-slider-group:last-of-type {
+  border-bottom: none;
+}
+
+.loan-slider-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.loan-slider-group__header label {
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.loan-slider-value {
+  padding: 6px 10px;
+
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 8px;
+
+  background: #f5f5ff;
+  color: #4f46e5;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Range Slider
+========================================================= */
+
+.loan-range {
+  width: 100%;
+  height: 6px;
+
+  margin: 5px 0 0;
+
+  appearance: none;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #a5b4fc
+  );
+
+  cursor: pointer;
+}
+
+/* Chrome / Edge / Safari */
+
+.loan-range::-webkit-slider-runnable-track {
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #c7d2fe
+  );
+}
+
+.loan-range::-webkit-slider-thumb {
+  appearance: none;
+
+  width: 19px;
+  height: 19px;
+
+  margin-top: -6.5px;
+
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+
+  background: #4f46e5;
+
+  box-shadow:
+    0 2px 7px rgba(79, 70, 229, 0.28);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.loan-range:hover::-webkit-slider-thumb {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 3px 10px rgba(79, 70, 229, 0.35);
+}
+
+/* Firefox */
+
+.loan-range::-moz-range-track {
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: #e5e7eb;
+}
+
+.loan-range::-moz-range-progress {
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: #6366f1;
+}
+
+.loan-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+
+  background: #4f46e5;
+
+  box-shadow:
+    0 2px 7px rgba(79, 70, 229, 0.28);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   Range Labels
+========================================================= */
+
+.loan-range-labels {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 9px;
+}
+
+.loan-range-labels span {
+  color: #98a2b3;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   Action Buttons
+========================================================= */
+
+.loan-disburse-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 8px;
+  padding-top: 22px;
+
+  border-top: 1px solid #eef0f4;
+}
+
+.loan-disburse-actions .auth-button {
+  min-height: 44px;
+}
+
+.loan-disburse-actions .auth-button--secondary {
+  min-width: 100px;
+
+  border: 1px solid #dfe3ea;
+
+  background: #ffffff;
+  color: #475467;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.loan-disburse-actions .auth-button--secondary:hover {
+  border-color: #c7cde0;
+
+  background: #f8fafc;
+  color: #344054;
+}
+
+.loan-disburse-actions .loan-btn-primary {
+  min-width: 185px;
+}
+
+/* =========================================================
+   EMI Summary Card
+========================================================= */
+
+.loan-emi-card {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  padding: 30px;
+
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 90% 5%,
+      rgba(99, 102, 241, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(20, 184, 166, 0.13),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #f7f7ff 0%,
+      #ffffff 55%,
+      #f3fffd 100%
+    );
+
+  box-shadow:
+    0 10px 28px rgba(79, 70, 229, 0.055),
+    0 2px 5px rgba(15, 23, 42, 0.025);
+}
+
+.loan-emi-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #6366f1,
+    #14b8a6
+  );
+}
+
+.loan-emi-card__glow {
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -110px;
+  top: -110px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.07);
+
+  pointer-events: none;
+}
+
+.loan-emi-card__label {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.loan-emi-card__amount {
+  position: relative;
+  z-index: 1;
+
+  margin: 8px 0 0;
+
+  color: #3730a3;
+
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
+}
+
+.loan-emi-card__tenure {
+  position: relative;
+  z-index: 1;
+
+  margin: 7px 0 0;
+
+  color: #667085;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   EMI Breakdown
+========================================================= */
+
+.loan-emi-breakdown {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 28px;
+
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.loan-emi-breakdown__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+.loan-emi-breakdown__row span {
+  color: #667085;
+
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.loan-emi-breakdown__row strong {
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.loan-emi-breakdown__row--total {
+  margin-top: 2px;
+
+  padding-top: 17px;
+
+  border-bottom: none;
+}
+
+.loan-emi-breakdown__row--total span {
+  color: #344054;
+
+  font-weight: 700;
+}
+
+.loan-emi-breakdown__row--total strong {
+  color: #4f46e5;
+
+  font-size: 16px;
+}
+
+/* =========================================================
+   Principal / Interest Ratio
+========================================================= */
+
+.loan-ratio-bar {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  width: 100%;
+  height: 8px;
+
+  margin-top: auto;
+  padding-top: 0;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  background: #e5e7eb;
+}
+
+.loan-ratio-bar__principal {
+  height: 100%;
+
+  background: #10b981;
+
+  transition: width 0.3s ease;
+}
+
+.loan-ratio-bar__interest {
+  height: 100%;
+
+  background: #f59e0b;
+
+  transition: width 0.3s ease;
+}
+
+.loan-ratio-legend {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 11px;
+}
+
+.loan-ratio-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #667085;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.dot--green {
+  background: #10b981;
+}
+
+.dot--amber {
+  background: #f59e0b;
+}
+
+/* =========================================================
+   Responsive — Tablet
+========================================================= */
+
+@media (max-width: 950px) {
+  .loan-disburse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-emi-card {
+    min-height: auto;
+  }
+
+  .loan-ratio-bar {
+    margin-top: 25px;
+  }
+}
+
+/* =========================================================
+   Responsive — Mobile
+========================================================= */
+
+@media (max-width: 768px) {
+  .loan-flow {
+    gap: 17px;
+  }
+
+  .loan-offer-banner {
+    padding: 17px 18px;
+  }
+
+  .loan-offer-banner__icon {
+    width: 38px;
+    height: 38px;
+
+    font-size: 16px;
+  }
+
+  .loan-offer-banner h3 {
+    font-size: 14px;
+  }
+
+  .loan-offer-banner p {
+    font-size: 12px;
+  }
+
+  .loan-sliders-card {
+    padding: 22px;
+  }
+
+  .loan-emi-card {
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   Responsive — Small Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+  .loan-offer-banner {
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .loan-offer-banner__icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+  .loan-offer-banner h3 {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .loan-offer-banner p {
+    margin-top: 6px;
+
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .loan-sliders-card {
+    padding: 19px;
+  }
+
+  .loan-sliders-card h3 {
+    font-size: 18px;
+  }
+
+  .loan-sliders-card__sub {
+    font-size: 12px;
+  }
+
+  .loan-slider-group {
+    padding: 19px 0;
+  }
+
+  .loan-slider-group__header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .loan-slider-value {
+    font-size: 13px;
+  }
+
+  .loan-disburse-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .loan-disburse-actions .auth-button,
+  .loan-disburse-actions .loan-btn-primary {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .loan-emi-card {
+    padding: 21px;
+  }
+
+  .loan-emi-card__amount {
+    font-size: 32px;
+  }
+
+  .loan-emi-breakdown {
+    margin-top: 22px;
+  }
+}
+
+/* =========================================================
+   Extra Small Mobile
+========================================================= */
+
+@media (max-width: 380px) {
+  .loan-offer-banner {
+    padding: 15px;
+  }
+
+  .loan-offer-banner__icon {
+    width: 31px;
+    height: 31px;
+
+    font-size: 13px;
+  }
+
+  .loan-offer-banner h3 {
+    font-size: 12px;
+  }
+
+  .loan-offer-banner p {
+    font-size: 10px;
+  }
+
+  .loan-sliders-card {
+    padding: 16px;
+  }
+
+  .loan-emi-card {
+    padding: 18px;
+  }
+
+  .loan-emi-card__amount {
+    font-size: 28px;
+  }
+
+  .loan-emi-breakdown__row {
+    padding: 12px 0;
+  }
+
+  .loan-emi-breakdown__row span {
+    font-size: 11px;
+  }
+
+  .loan-emi-breakdown__row strong {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .loan-flow *,
+  .loan-flow *::before,
+  .loan-flow *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

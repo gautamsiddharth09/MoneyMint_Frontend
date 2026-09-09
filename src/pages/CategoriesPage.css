@@ -1,0 +1,726 @@
+/* =========================================================
+   Categories Page
+   Fintech / Professional / Clean UI
+========================================================= */
+
+.categories-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =========================================================
+   Toolbar
+========================================================= */
+
+.categories-page .expenses-toolbar {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e7eaf0;
+  background:
+    radial-gradient(
+      circle at 92% 15%,
+      rgba(99, 102, 241, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 100%,
+      rgba(20, 184, 166, 0.045),
+      transparent 28%
+    ),
+    #ffffff;
+}
+
+.categories-page .expenses-toolbar::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  top: -100px;
+  right: -70px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.045);
+  pointer-events: none;
+}
+
+.categories-page .expenses-toolbar::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: -100px;
+  left: 28%;
+  border-radius: 50%;
+  background: rgba(20, 184, 166, 0.035);
+  pointer-events: none;
+}
+
+.categories-page .expenses-toolbar__stats {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Toolbar Stats
+========================================================= */
+
+.categories-page .expenses-toolbar__stats > div:first-child h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f46e5;
+}
+
+.categories-page .expenses-toolbar__stats > div:first-child h3::before {
+  content: "₹";
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.06);
+}
+
+.categories-page .expenses-toolbar__stats > div:last-child h3 {
+  color: #172033;
+}
+
+/* =========================================================
+   Add Category Button
+========================================================= */
+
+.categories-page .expenses-toolbar__add {
+  position: relative;
+  z-index: 2;
+
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6366f1
+  );
+
+  box-shadow:
+    0 8px 18px rgba(79, 70, 229, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.categories-page .expenses-toolbar__add:hover {
+  background: linear-gradient(
+    135deg,
+    #4338ca,
+    #4f46e5
+  );
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 11px 24px rgba(79, 70, 229, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.categories-page .expenses-toolbar__add:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   Search Filter
+========================================================= */
+
+.categories-filters {
+  padding: 21px 24px;
+  border: 1px solid #e7eaf0;
+  background: #ffffff;
+}
+
+.categories-filters .auth-field {
+  width: 100%;
+  max-width: 560px;
+}
+
+.categories-filters .auth-field > span {
+  color: #344054;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.categories-filters input {
+  min-height: 44px;
+  padding: 0 14px;
+
+  border: 1px solid #dfe3ea;
+  border-radius: 10px;
+
+  background: #f9fafc;
+  color: #172033;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.categories-filters input:hover {
+  border-color: #c7cde0;
+  background: #ffffff;
+}
+
+.categories-filters input:focus {
+  outline: none;
+
+  border-color: #6366f1;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1),
+    0 4px 12px rgba(99, 102, 241, 0.05);
+}
+
+.categories-filters input::placeholder {
+  color: #98a2b3;
+}
+
+/* =========================================================
+   Categories Grid
+========================================================= */
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  padding: 22px;
+}
+
+/* =========================================================
+   Category Card
+========================================================= */
+
+.category-card {
+  position: relative;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
+  border: 1px solid #e7eaf0;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fcfdff 100%
+    );
+
+  box-shadow:
+    0 2px 5px rgba(16, 24, 40, 0.025),
+    0 8px 20px rgba(16, 24, 40, 0.035);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #6366f1,
+    #14b8a6
+  );
+
+  opacity: 0.85;
+}
+
+.category-card::after {
+  content: "";
+
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  top: -55px;
+  right: -45px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.045);
+
+  pointer-events: none;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #d8dcf0;
+
+  box-shadow:
+    0 5px 12px rgba(16, 24, 40, 0.04),
+    0 14px 30px rgba(79, 70, 229, 0.07);
+}
+
+/* =========================================================
+   Category Header
+========================================================= */
+
+.category-card__header {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.category-card__header h3 {
+  min-width: 0;
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   Budget Badge
+========================================================= */
+
+.category-card .expense-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 26px;
+  padding: 4px 9px;
+
+  border: 1px solid #e0e7ff;
+  border-radius: 7px;
+
+  background: #eef2ff;
+  color: #4f46e5;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* =========================================================
+   Category Budget
+========================================================= */
+
+.category-card__budget {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: #4f46e5;
+
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+.category-card__budget::before {
+  content: "Monthly limit";
+
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #98a2b3;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   Created Date
+========================================================= */
+
+.category-card__date {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  margin-top: 12px;
+
+  color: #98a2b3;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Card Actions
+========================================================= */
+
+.category-card__actions {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+  padding-top: 15px;
+
+  border-top: 1px solid #eef0f4;
+}
+
+.category-card__actions button {
+  min-height: 34px;
+  padding: 7px 12px;
+
+  border: 1px solid #e1e5ec;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #475467;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.category-card__actions button:hover {
+  border-color: #c7cde0;
+  background: #f8f9fc;
+  color: #4f46e5;
+}
+
+.category-card__actions button:active {
+  transform: translateY(1px);
+}
+
+.category-card__actions button.danger {
+  border-color: #fee2e2;
+  background: #fffafa;
+  color: #dc2626;
+}
+
+.category-card__actions button.danger:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.category-card__actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   Empty State
+========================================================= */
+
+.categories-page .expenses-empty {
+  min-height: 280px;
+}
+
+.categories-page .expenses-empty::before {
+  content: "▦";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin-bottom: 14px;
+
+  border: 1px solid #e0e7ff;
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #f0fdfa
+    );
+
+  color: #4f46e5;
+
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.categories-page .expenses-empty p {
+  max-width: 430px;
+}
+
+/* =========================================================
+   Modal
+========================================================= */
+
+.categories-page .expense-modal__card {
+  border-color: rgba(99, 102, 241, 0.12);
+
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.16),
+    0 8px 25px rgba(79, 70, 229, 0.06);
+}
+
+.categories-page .expense-modal__card::before {
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #6366f1,
+    #14b8a6
+  );
+}
+
+/* =========================================================
+   Category Input Focus
+========================================================= */
+
+.categories-page .expense-modal .auth-field input:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1),
+    0 4px 12px rgba(99, 102, 241, 0.05);
+}
+
+/* =========================================================
+   Budget Hint
+========================================================= */
+
+.categories-page .auth-field__hint {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #98a2b3;
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   Modal Primary Button
+========================================================= */
+
+.categories-page .expense-modal__actions
+.auth-button:not(.auth-button--secondary) {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6366f1
+  );
+
+  box-shadow:
+    0 7px 16px rgba(79, 70, 229, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.categories-page .expense-modal__actions
+.auth-button:not(.auth-button--secondary):hover {
+  background: linear-gradient(
+    135deg,
+    #4338ca,
+    #4f46e5
+  );
+}
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 1100px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   Small Tablet
+========================================================= */
+
+@media (max-width: 768px) {
+  .categories-page {
+    gap: 16px;
+  }
+
+  .categories-filters {
+    padding: 18px;
+  }
+
+  .categories-filters .auth-field {
+    max-width: none;
+  }
+
+  .categories-grid {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .category-card {
+    padding: 18px;
+  }
+
+  .category-card__budget {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 640px) {
+  .categories-page {
+    gap: 14px;
+  }
+
+  .categories-page .expenses-toolbar {
+    padding: 18px;
+  }
+
+  .categories-filters {
+    padding: 17px;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 15px;
+  }
+
+  .category-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .category-card:hover {
+    transform: none;
+  }
+
+  .category-card__header {
+    margin-bottom: 15px;
+  }
+
+  .category-card__header h3 {
+    font-size: 15px;
+  }
+
+  .category-card__budget {
+    font-size: 21px;
+  }
+
+  .category-card__actions {
+    margin-top: 17px;
+  }
+
+  .category-card__actions button {
+    min-height: 36px;
+    flex: 1;
+  }
+
+  .categories-page .expense-modal__card {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 400px) {
+  .categories-page .expenses-toolbar__stats h3 {
+    font-size: 18px;
+  }
+
+  .categories-page
+  .expenses-toolbar__stats > div:first-child h3::before {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .categories-grid {
+    padding: 12px;
+  }
+
+  .category-card {
+    padding: 16px;
+  }
+
+  .category-card__budget {
+    font-size: 20px;
+  }
+
+  .category-card__actions button {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .categories-page *,
+  .categories-page *::before,
+  .categories-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

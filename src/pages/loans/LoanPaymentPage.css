@@ -1,0 +1,766 @@
+
+
+.loan-payment-header {
+  position: relative;
+  overflow: hidden;
+
+  padding: 26px 28px;
+
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(99, 102, 241, 0.11),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(20, 184, 166, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f9ff,
+      #ffffff 60%,
+      #f7fffd
+    );
+
+  box-shadow:
+    0 7px 22px rgba(15, 23, 42, 0.035),
+    0 2px 5px rgba(15, 23, 42, 0.02);
+}
+
+.loan-payment-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -90px;
+  top: -105px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.045);
+
+  pointer-events: none;
+}
+
+/*    Back Button */
+
+.loan-back-btn {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 34px;
+
+  padding: 6px 11px;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #667085;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-back-btn:hover {
+  color: #4f46e5;
+
+  border-color: rgba(99, 102, 241, 0.25);
+
+  background: #fafaff;
+
+  transform: translateX(-2px);
+}
+/*  Payment Header */
+
+.loan-payment-header h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 15px 0 5px;
+
+  color: #172033;
+
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 780;
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+}
+
+.loan-payment-header p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.loan-payment-header p strong {
+  color: #4f46e5;
+
+  font-weight: 750;
+}
+/*  Error Alert */
+.loan-flow > .auth-alert {
+  margin: 0;
+}
+
+/*  Payment Modes */
+
+.loan-payment-modes {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.loan-payment-mode {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  min-width: 0;
+
+  padding: 19px;
+
+  border: 1px solid #e6e8ee;
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  text-align: left;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.025);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-payment-mode:hover {
+  border-color: rgba(99, 102, 241, 0.28);
+
+  background: #fafaff;
+
+  box-shadow:
+    0 7px 20px rgba(15, 23, 42, 0.055);
+
+  transform: translateY(-2px);
+}
+
+.loan-payment-mode--active {
+  border-color: rgba(99, 102, 241, 0.4);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fafaff,
+      #ffffff
+    );
+
+  box-shadow:
+    0 8px 24px rgba(79, 70, 229, 0.08),
+    inset 0 0 0 1px rgba(99, 102, 241, 0.05);
+}
+
+.loan-payment-mode--active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 15px;
+  bottom: 15px;
+
+  width: 3px;
+
+  border-radius: 0 5px 5px 0;
+
+  background: linear-gradient(
+    180deg,
+    #4f46e5,
+    #14b8a6
+  );
+}
+
+/*    Payment Mode Icon */
+
+.loan-payment-mode__icon {
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e9eaf0;
+  border-radius: 11px;
+
+  background: #f7f8fb;
+
+  font-size: 18px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-payment-mode--active .loan-payment-mode__icon {
+  border-color: rgba(99, 102, 241, 0.12);
+
+  background: #f1f0ff;
+
+  transform: scale(1.04);
+}
+
+/*    Payment Mode Content */
+
+.loan-payment-mode > div {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.loan-payment-mode strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #172033;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  line-height: 1.3;
+}
+
+.loan-payment-mode p {
+  margin: 0;
+
+  color: #7a8496;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.loan-payment-mode__amount {
+  flex-shrink: 0;
+
+  align-self: flex-start;
+
+  padding: 5px 8px;
+
+  border-radius: 7px;
+
+  background: #ecfdf3;
+
+  color: #15803d;
+
+  font-size: 10px;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+/*  Partial Prepayment */
+.loan-prepay-input {
+  position: relative;
+
+  padding: 22px 24px;
+
+  border: 1px solid rgba(99, 102, 241, 0.13);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(99, 102, 241, 0.07),
+      transparent 30%
+    ),
+    #ffffff;
+
+  box-shadow:
+    0 4px 15px rgba(15, 23, 42, 0.025);
+}
+
+.loan-prepay-input::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  border-radius: 3px 0 0 3px;
+
+  background: linear-gradient(
+    180deg,
+    #4f46e5,
+    #14b8a6
+  );
+}
+
+.loan-prepay-input .auth-field {
+  max-width: 600px;
+}
+
+.loan-prepay-input .auth-field > span {
+  color: #344054;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.loan-prepay-input input {
+  min-height: 46px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+}
+
+.loan-prepay-input input:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.loan-prepay-input input::placeholder {
+  color: #a5adba;
+}
+
+/* Remove number spinner */
+
+.loan-prepay-input input[type="number"]::-webkit-inner-spin-button,
+.loan-prepay-input input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+.loan-prepay-input input[type="number"] {
+  appearance: textfield;
+}
+
+/*   Payment Summary */
+
+.loan-payment-summary {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 25px 27px;
+
+  border: 1px solid #e5e7ee;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(99, 102, 241, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #fafaff
+    );
+
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.035);
+}
+
+.loan-payment-summary::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #6366f1,
+    #14b8a6
+  );
+}
+
+/*  Summary Rows */
+
+.loan-payment-summary__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  min-height: 43px;
+
+  border-bottom: 1px solid #eef0f4;
+}
+
+.loan-payment-summary__row span {
+  color: #667085;
+
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.loan-payment-summary__row strong {
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  text-align: right;
+}
+
+.loan-payment-summary__row--total {
+  min-height: 62px;
+
+  border-bottom: none;
+}
+
+.loan-payment-summary__row--total span {
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.loan-payment-summary__row--total strong {
+  color: #4f46e5;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+}
+
+/*  Confirm Payment Button */
+
+.loan-payment-confirm {
+  width: 100%;
+
+  min-height: 50px;
+
+  margin-top: 8px;
+
+  border-radius: 11px;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  box-shadow:
+    0 7px 18px rgba(79, 70, 229, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.loan-payment-confirm:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 23px rgba(79, 70, 229, 0.2);
+}
+
+.loan-payment-confirm:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/*    Razorpay Note */
+
+.loan-payment-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin: 12px 0 0;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+  font-weight: 550;
+
+  text-align: center;
+}
+
+.loan-payment-note::before {
+  content: "🔒";
+
+  font-size: 10px;
+}
+
+
+   /* Focus Accessibility */
+
+
+.loan-payment-mode:focus-visible,
+.loan-back-btn:focus-visible,
+.loan-payment-confirm:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.2);
+
+  outline-offset: 2px;
+}
+
+
+
+@media (max-width: 950px) {
+  .loan-payment-modes {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-payment-mode {
+    min-height: 82px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .loan-payment-header {
+    padding: 22px;
+  }
+
+  .loan-payment-header h2 {
+    font-size: 24px;
+  }
+
+  .loan-payment-mode {
+    padding: 17px;
+  }
+
+  .loan-prepay-input {
+    padding: 20px;
+  }
+
+  .loan-payment-summary {
+    padding: 22px;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .loan-payment-header {
+    padding: 19px;
+
+    border-radius: 15px;
+  }
+
+  .loan-back-btn {
+    min-height: 32px;
+
+    padding: 5px 9px;
+
+    font-size: 10px;
+  }
+
+  .loan-payment-header h2 {
+    margin-top: 12px;
+
+    font-size: 21px;
+  }
+
+  .loan-payment-header p {
+    font-size: 11px;
+  }
+
+  .loan-payment-mode {
+    gap: 10px;
+
+    padding: 15px;
+
+    border-radius: 13px;
+  }
+
+  .loan-payment-mode__icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+  }
+
+  .loan-payment-mode strong {
+    font-size: 12px;
+  }
+
+  .loan-payment-mode p {
+    font-size: 9px;
+  }
+
+  .loan-payment-mode__amount {
+    padding: 4px 7px;
+
+    font-size: 9px;
+  }
+
+  .loan-prepay-input {
+    padding: 18px;
+  }
+
+  .loan-payment-summary {
+    padding: 19px;
+  }
+
+  .loan-payment-summary__row {
+    min-height: 40px;
+  }
+
+  .loan-payment-summary__row span {
+    font-size: 11px;
+  }
+
+  .loan-payment-summary__row strong {
+    font-size: 12px;
+  }
+
+  .loan-payment-summary__row--total {
+    min-height: 58px;
+  }
+
+  .loan-payment-summary__row--total span {
+    font-size: 12px;
+  }
+
+  .loan-payment-summary__row--total strong {
+    font-size: 20px;
+  }
+
+  .loan-payment-confirm {
+    min-height: 47px;
+
+    font-size: 12px;
+  }
+
+  .loan-payment-note {
+    font-size: 9px;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  .loan-payment-header {
+    padding: 16px;
+  }
+
+  .loan-payment-header h2 {
+    font-size: 19px;
+  }
+
+  .loan-payment-header p {
+    font-size: 10px;
+  }
+
+  .loan-payment-mode {
+    padding: 13px;
+  }
+
+  .loan-payment-mode__icon {
+    width: 33px;
+    height: 33px;
+
+    font-size: 14px;
+  }
+
+  .loan-payment-mode strong {
+    font-size: 11px;
+  }
+
+  .loan-payment-mode p {
+    font-size: 8px;
+  }
+
+  .loan-payment-mode__amount {
+    font-size: 8px;
+  }
+
+  .loan-prepay-input {
+    padding: 16px;
+  }
+
+  .loan-payment-summary {
+    padding: 16px;
+  }
+
+  .loan-payment-summary__row--total strong {
+    font-size: 18px;
+  }
+
+  .loan-payment-note {
+    font-size: 8px;
+  }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .loan-flow *,
+  .loan-flow *::before,
+  .loan-flow *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
