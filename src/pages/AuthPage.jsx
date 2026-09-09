@@ -20,15 +20,14 @@ function AuthPage({ onAuthenticated }) {
         <img src={heroImage} alt="" className="auth-hero__image" />
         <div className="auth-hero__content">
           <span className="auth-brand">MoneyMint</span>
-          <h2>Take control of your money</h2>
-          <p>
-            Track expenses, organize categories, and understand where every rupee goes —
-            all in one place.
-          </p>
+          <h2>Manage. Borrow. Repay.</h2>
+         <p>
+       Emphasize the velocity of getting instant funds paired with complete visibility over your money.
+  </p>
           <ul>
-            <li>Real-time expense tracking</li>
-            <li>Category-wise insights</li>
-            <li>Secure, private accounts</li>
+            <li>Instant loan approval & repayment tracking</li>
+    <li>Automated expense analytics & categorization</li>
+    <li>End-to-end encrypted financial data</li>
           </ul>
         </div>
       </section>

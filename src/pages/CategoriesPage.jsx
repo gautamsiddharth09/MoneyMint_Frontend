@@ -230,7 +230,7 @@ function CategoriesPage({ user }) {
       <section className="expenses-toolbar dashboard-card">
         <div className="expenses-toolbar__stats">
           <div>
-            <p>Total monthly budget</p>
+            <p>monthly budget</p>
             <h3>{formatCurrency(totalBudget)}</h3>
           </div>
           <div>
