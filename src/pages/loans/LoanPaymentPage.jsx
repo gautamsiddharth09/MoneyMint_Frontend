@@ -100,7 +100,7 @@ function LoanPaymentPage({ loan, loanForm, user, onPaymentSuccess, onBack, isPro
         order,
         paymentPayload,
         verifyPayment: verifyRazorpayCheckout,
-        description: `${mode.title} — FinTrack Loan`,
+        description: `${mode.title} — MoneyMint Loan`,
         prefill: {
           name: user?.name,
           email: loanForm?.applicantEmail,

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { getDashboardData } from '../api/dashboard'
+import './AnalyticalOverview.css'
 import {
   buildMonthlyAnalytics,
   formatCurrency,

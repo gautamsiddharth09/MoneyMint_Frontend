@@ -44,7 +44,7 @@ export async function openLoanRazorpayCheckout({
       amount: order.amount,
       currency: order.currency || 'INR',
       order_id: order.orderId,
-      name: 'FinTrack Loans',
+      name: 'MoneyMint Loans',
       description,
       prefill: {
         name: prefill?.name || '',
